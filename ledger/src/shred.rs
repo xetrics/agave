@@ -462,7 +462,7 @@ impl Shred {
         self.common_header().index
     }
 
-    pub(crate) fn data(&self) -> Result<&[u8], Error> {
+    pub fn data(&self) -> Result<&[u8], Error> {
         match self {
             Self::ShredCode(_) => Err(Error::InvalidShredType),
             Self::ShredData(shred) => shred.data(),
